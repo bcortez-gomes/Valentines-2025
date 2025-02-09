@@ -1,0 +1,22 @@
+{
+  "name": "valentines",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "source": "src/index.html",
+    "dev": "parcel src/index.html --no-cache",
+    "build": "parcel build src/index.html --no-cache"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.13.3",
+    "parcel": "^2.13.3"
+  },
+  "dependencies": {
+    "swiper": "^11.2.2"
+  }
+}

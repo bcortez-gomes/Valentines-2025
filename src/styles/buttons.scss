@@ -1,0 +1,139 @@
+@use "sass:math";
+
+.part1{
+    margin-top: 112px;
+    background-image: url(/src/images/section1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 1133px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+
+    &__title{
+        padding-top: 752px;
+        font-size: 70px;
+        padding-bottom: 87px;
+    }
+
+    &__parts{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 75px;
+        padding-bottom: 87px;
+        position: relative;
+    }
+
+    .button{
+        width: 363px;
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .no{
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .no:hover {
+        $randomX: math.random(300) - 50;
+        $randomY: math.random(300) - 50;
+
+        transform: translate(#{$randomX}px, #{$randomY}px);
+    }
+
+    .yes {
+        position: relative;
+        z-index: 999;
+    }   
+
+    @media (max-width: 390px) {
+        margin-top: 36px;
+        background-image: url(/src/images/section1mobile.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        height: 657px;
+        display: flex;
+
+        &__title{
+            padding-top: 300px;
+            font-size: 45px;
+            padding-bottom: 46px;
+        }
+
+        &__parts{
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .button{
+            width: 195px;
+            padding-bottom: 31px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .no {
+            position: relative;
+            left: 0;
+            top: 0;
+            transform: none;
+        }
+
+        .no:hover {
+            $randomX: math.random(200) - 100;
+            $randomY: math.random(200) - 100;
+            transform: translate(#{$randomX}px, #{$randomY}px);
+        }
+
+        .yes {
+            position: relative;
+            z-index: 1001;
+        }
+    }
+}
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: random($limit: 1);
+    opacity: 1;
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-5vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+$colors: #FFB6C1, #e03039, #FFD64A, #318CD8, #FFEFBA, #9DD5F6;
+
+@for $i from 1 through length($colors) {
+    .confetti-#{$i} {
+        background-color: nth($colors, $i);
+    }
+}

@@ -1,0 +1,47 @@
+
+.part2{
+    background-image: url(/src/images/section2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 952px;
+
+    &__span{
+        padding-top: 261px;
+        padding-bottom: 18px;
+        font-size: 55px;
+        padding-left: 240px;
+    }
+
+    &__subtitle{
+        font-size: 70px;
+        text-align: center;
+        padding-right: 320px;
+    }
+
+    @media (max-width: 390px) {
+        background-image: url(/src/images/sectionmobile2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        height: 706px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        &__span{
+            padding-top: 160px;
+            font-size: 35px;
+            padding-left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        &__subtitle{
+            padding-right: 0;
+            text-align: center;
+            font-size: 35px;
+        }
+    }
+}
